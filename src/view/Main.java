@@ -1,25 +1,18 @@
 package view;
 
-import model.Sale;
+import model.SalesManager;
 
 public class Main {
 	public static void main(String[] args) {
-		Sale sale = new Sale();
-		sale.createSaleItem("at", 2);
-		sale.createSaleItem("ff", 1);
-		sale.createSaleItem("msa", 2);
+		SalesManager sale = new SalesManager();
+		System.out.println(sale.addSaleItem("at", 2));
+		System.out.println(sale.addSaleItem("ff", 1));
+		System.out.println(sale.addSaleItem("msa", 4));
 		
 		sale.setPaymentMethod("cc");
 		
-		for (String item : sale.getItems())
+		for (String item : sale.getInvoice())
 			System.out.println(item);
-		
-		System.out.println(String.format("Total: %.2f", 
-				sale.getTotal()));
-		
-		System.out.println(String.format("Forma de pagamento: '%s'", sale.getPaymentMethod()));
-
-		System.out.println(String.format("Valor a ser pago: '%s'", sale.getFinalPrice()));
 		
 	}
 	

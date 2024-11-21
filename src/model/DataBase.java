@@ -9,6 +9,9 @@ public class DataBase {
 	
 	private static Map<String, PaymentMethod> payments= 
 			new HashMap<String, PaymentMethod>();
+	
+	private static Map<String, StockItem> stocks= 
+			new HashMap<String, StockItem>();
 					
 	static {
 		products.put("at", new String[] {"Arroz Tatiana" , "30"});
@@ -23,6 +26,13 @@ public class DataBase {
 		payments.put("dc", debitCard1 );
 		payments.put("c", cash1);
 		
+		StockItem riceStock = new StockItem("at", 100);
+		StockItem beansStock = new StockItem("ff", 20);
+		StockItem pastaStock = new StockItem("msa", 5);
+		
+		stocks.put("at", riceStock);
+		stocks.put("ff", beansStock);
+		stocks.put("msa", pastaStock);
 	}
 	
 	public static String[] selectProduct(String code) {
@@ -33,5 +43,8 @@ public class DataBase {
 		return payments.get(code);
 	}
 	
+	public static Map<String, StockItem> getStocks() {
+		return new HashMap<String, StockItem>(stocks);
+	}
 	
 }

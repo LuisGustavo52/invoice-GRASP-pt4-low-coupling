@@ -5,6 +5,7 @@ public class StockItem {
 	private int quantity;
 	
 	public StockItem(String product, int quantity){
+		this.quantity = quantity;
 		String productData[] = DataBase.selectProduct(product);
 		
 		this.product = new Product();
@@ -17,7 +18,7 @@ public class StockItem {
 	}
 	
 	public void decreaseStock(int valueToDecrease) {
-		this.quantity += valueToDecrease;
+		this.quantity -= valueToDecrease;
 	}
 
 	public int getQuantity() {
